@@ -1,3 +1,5 @@
+######
+
 import os
 from datetime import datetime, timedelta
 from airflow import DAG
@@ -11,14 +13,14 @@ default_args={
     'satrt_date':yesterday,
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 1
+    'retries': 1,
     'retry_delay': timedelta(minutes=2)
 }
 
 with DAG(
     dag_id='gcs_to_bq',
     catchup=False,
-    schedule_interval=timedelta(days=1)
+    schedule_interval=timedelta(days=1),
     default_args=default_args
 ) as dag:
 
