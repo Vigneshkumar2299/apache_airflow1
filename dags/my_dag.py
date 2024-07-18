@@ -38,14 +38,14 @@ with DAG(
         source_objects=['Alubee_Update.xlsx'],
         destination_project_dataset_table='gwc-poc.gcp_dataeng_demos.gcs_to_bq_table',
         schema_fields=[
-            {'name': 'Project Health', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Allocated Resource', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Project Lead', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'ProjectHealth', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'AllocatedResource', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'ProjectLead', 'type': 'STRING', 'mode': 'NULLABLE'},
             {'name': 'Developers', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Client Feedback', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Project Insight & Deliverables', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Risk/Blockers', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'New Requirements', 'type': 'STRING', 'mode': 'NULLABLE'}
+            {'name': 'ClientFeedback', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'ProjectInsight&Deliverables', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'RiskBlockers', 'type': 'STRING', 'mode': 'NULLABLE'},
+            {'name': 'NewRequirements', 'type': 'STRING', 'mode': 'NULLABLE'}
         ],
         skip_leading_rows=1,
         create_disposition='CREATE_IF_NEEDED',
@@ -65,7 +65,7 @@ with DAG(
                     variable,\
                     source,\
                     SUM(data_value) as sum_data_value\
-             FROM data-eng-demos19.gcp_dataeng_demos.gcs_to_bq_table \
+             FROM gwc-poc.gcp_dataeng_demos.gcs_to_bq_table \
              GROUP BY \
                     year,\
                     anzsic_descriptor,\
