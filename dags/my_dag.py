@@ -31,12 +31,12 @@ with DAG(
     # Task: gcs_to_bq
     gcs_to_bq = GoogleCloudStorageToBigQueryOperator(
         task_id='gcs_to_bq',
-        bucket='data_eng_demos',
+        bucket='composer-staging14',
         source_objects=['Alubee_Update.xlsx'],
-        destination_project_dataset_table='data-eng-demos19.gcp_dataeng_demos.gcs_to_bq_table',
+        destination_project_dataset_table='gwc-poc.gcp_dataeng_demos.gcs_to_bq_table',
         schema_fields=[
             {'name': 'Project Health', 'type': 'STRING', 'mode': 'NULLABLE'},
-            {'name': 'Allocated Resource', 'type': 'INT', 'mode': 'NULLABLE'},
+            {'name': 'Allocated Resource', 'type': 'STRING', 'mode': 'NULLABLE'},
             {'name': 'Project Lead', 'type': 'STRING', 'mode': 'NULLABLE'},
             {'name': 'Developers', 'type': 'STRING', 'mode': 'NULLABLE'},
             {'name': 'Client Feedback', 'type': 'STRING', 'mode': 'NULLABLE'},
