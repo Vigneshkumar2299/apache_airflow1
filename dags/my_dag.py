@@ -35,7 +35,7 @@ with DAG(
     gcs_to_bq = GoogleCloudStorageToBigQueryOperator(
         task_id='gcs_to_bq',
         bucket='composer-staging14',
-        source_objects=['Alubee_Update.xlsx'],
+        source_objects=['Alubee_Update.csv'],
         destination_project_dataset_table='gwc-poc.gcp_dataeng_demos.gcs_to_bq_table',
         schema_fields=[
             {'name': 'ProjectHealth', 'type': 'STRING', 'mode': 'NULLABLE'},
