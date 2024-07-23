@@ -44,6 +44,7 @@ def run():
         result = (
                 p | 'Read from GCS' >> ReadFromText(
             'gs://logs_exports14/cloudaudit.googleapis.com/data_access/2024/07/23/*.json')
+            
                 | 'Parse logs to string representation of dict' >> beam.ParDo(ParseJSON())
                 | 'Convert String to Dict' >> beam.Map(lambda x: json.loads(x))
             # | beam.Map(print)
