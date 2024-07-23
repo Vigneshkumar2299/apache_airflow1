@@ -35,7 +35,7 @@ with DAG(dag_id='DataflowPythonOperator',
     # Dataflow batch job  log process task
     dataflow_batch_process_logs = DataFlowPythonOperator(
         task_id='dataflow_batch_process_logs',
-        py_file='gs://us-central1-composer-scd2-5607404f-bucket/dags/scripts/dataflow_batch_log_process.py',
+        py_file='gs://us-central1-composer-scd2-5607404f-bucket/scripts/dataflow_batch_log_process.py',
         options={
             'output': 'gs://data_eng_demos/output'
         },
