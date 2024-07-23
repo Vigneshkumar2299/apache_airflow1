@@ -35,14 +35,14 @@ with DAG(dag_id='DataflowPythonOperator',
     # Dataflow batch job  log process task
     dataflow_batch_process_logs = DataFlowPythonOperator(
         task_id='dataflow_batch_process_logs',
-        py_file='gs://us-central1-composer-scd2-5607404f-bucket/scripts/dataflow_batch_log_process.py',
+        py_file='gs://us-central1-data-engineerin-6d2f5807-bucket/scripts/dataflow_batch_log_process.py',
         options={
-            'output': 'gs://data_eng_demos/output'
+            'output': 'gs://data_transformed14'
         },
         dataflow_default_options={
             'project': 'data-eng-demos19',
-            "staging_location": "gs://data_eng_demos/staging",
-            "temp_location": "gs://data_eng_demos/temp"
+            "staging_location": "gs://logs_exports14/staging",
+            "temp_location": "gs://composer14/temp"
         },
         dag=dag)
 
