@@ -1,0 +1,13 @@
+{
+	"name": "restapi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FASTAPI",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

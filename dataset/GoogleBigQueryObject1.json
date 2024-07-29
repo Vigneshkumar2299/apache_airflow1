@@ -1,0 +1,17 @@
+{
+	"name": "GoogleBigQueryObject1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GoogleBigQuery1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "GoogleBigQueryV2Object",
+		"schema": [],
+		"typeProperties": {
+			"dataset": "logs_export",
+			"table": "airflow_scheduler_20240723"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

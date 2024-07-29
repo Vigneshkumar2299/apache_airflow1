@@ -1,0 +1,168 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "['rank']"
+								},
+								"sink": {
+									"name": "rank"
+								}
+							},
+							{
+								"source": {
+									"path": "['symbol']"
+								},
+								"sink": {
+									"name": "symbol"
+								}
+							},
+							{
+								"source": {
+									"path": "['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "['supply']"
+								},
+								"sink": {
+									"name": "supply"
+								}
+							},
+							{
+								"source": {
+									"path": "['maxSupply']"
+								},
+								"sink": {
+									"name": "maxSupply"
+								}
+							},
+							{
+								"source": {
+									"path": "['marketCapUsd']"
+								},
+								"sink": {
+									"name": "marketCapUsd"
+								}
+							},
+							{
+								"source": {
+									"path": "['volumeUsd24Hr']"
+								},
+								"sink": {
+									"name": "volumeUsd24Hr"
+								}
+							},
+							{
+								"source": {
+									"path": "['priceUsd']"
+								},
+								"sink": {
+									"name": "priceUsd"
+								}
+							},
+							{
+								"source": {
+									"path": "['changePercent24Hr']"
+								},
+								"sink": {
+									"name": "changePercent24Hr"
+								}
+							},
+							{
+								"source": {
+									"path": "['vwap24Hr']"
+								},
+								"sink": {
+									"name": "vwap24Hr"
+								}
+							},
+							{
+								"source": {
+									"path": "['explorer']"
+								},
+								"sink": {
+									"name": "explorer"
+								}
+							},
+							{
+								"source": {
+									"path": "$['timestamp']"
+								},
+								"sink": {
+									"name": "timestamp"
+								}
+							}
+						],
+						"collectionReference": "$['data']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "restapi",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "csvfile",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-07-29T06:04:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
